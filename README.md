@@ -1,6 +1,8 @@
 # BadNet
 Python Implementation of the Go-back-N protocol for file transfer using Client server communication over UDP. 
 
+
+# RDT Technologies Details
 The client transfers a single file to the server's local directory over UDP on a _VERY_ unreliable network. It begins with reading chunks of data from a file and sending them as packets (packetsize < 1KB) to the server that acknowledges the packets received.
 The catch is that the client program can send multiple packets to the server without waiting for an acknowledgment but is constrained to maintain a window of size N over a range of sequence numbers of unacknowledged packets. The lower bound 'base' is the sequence number of the oldest unacknowledged packet and the upper bound is the total windowSize. It also maintains the nextSeqnum that is defined to be the sequence number of the packet to be sent. On the other hand, the server program maintains the sequence number of the next in-order packet only.
 
